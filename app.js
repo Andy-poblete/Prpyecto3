@@ -1,15 +1,37 @@
-const unidades = document.getElementById('myChart');
+import { Api } from "./fetch.js";
 
-const chart = new Chart(unidades, {
-    type:'line',
-    data:{
-        labels: [`https://mindicador.cl/api/uf/1977`, `https://mindicador.cl/api/uf/2023`],
-        datasets:[{
-            data:[380, 38000],
-            label: 'Unidades de Fomento',
-            backgroundColor:[
-                '#FF0000'
-            ]
-        }]
-    }
-})
+let valores = [];
+let fechas = [];
+
+async function renderData() {
+    const ufs = await Api("https://mindicador.cl/api/uf");
+    console.log(ufs)
+
+  //  fechas = ufs.map((uf) => uf.fecha);
+    //valores = ufs.map((uf) => uf.valor);
+
+
+    const unidades = document.getElementById('myChart');
+
+    const chart = new Chart(unidades, {
+        type: 'line',
+        data: {
+            labels: fechas,
+            datasets: [{
+                label: 'Unidades de Fomento',
+                data: valores,
+                borderWidth: 1,
+                backgroundColor: '#FF0000',
+                borderColor: '#0000ff'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+renderData()
