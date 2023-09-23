@@ -3,8 +3,6 @@ import { Api } from "./fetch.js";
 let valores = [];
 let fechas = [];
 
-
-
 async function renderData() {
     const ufs = await Api("https://mindicador.cl/api/uf");
     const {
@@ -16,9 +14,7 @@ async function renderData() {
     valores = serie.map(uf => uf.valor);
 
 
-    const fechasOrdenadas = fechas.sort((a, b) => a>b);
-
-
+    const fechasOrdenadas = fechas.reverse((a, b) => a>b);
     
     const unidades = document.getElementById('myChart');
 

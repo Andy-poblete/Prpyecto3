@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(168, 189, 189);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.distancia{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    background-color: rgb(91, 92, 92);
+    color: white;
+    margin-top: 500px;
+    display: flex;
+    justify-content: center;
+}
