@@ -4,14 +4,12 @@
 en donde trae los ultimos 30 dias de 
 valor de las unidades de fomento
 
-###*lenguajes Utilizados*
+###*Lenguajes Utilizados*
 
-*HTML*
-*CSS*
-*JAVASCRIPT*
+*HTML*, *CSS*, *JAVASCRIPT*.
 
 ###Los link utilizados 
 
-####link:
+####Link:
 [Reviblog](https://www.chartjs.org/)
 [Reviblog](https://mindicador.cl/api/uf)
