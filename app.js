@@ -3,20 +3,29 @@ import { Api } from "./fetch.js";
 let valores = [];
 let fechas = [];
 
+
+
 async function renderData() {
     const ufs = await Api("https://mindicador.cl/api/uf");
+    const {
+        serie
+    }=ufs;
     console.log(ufs)
 
-  //  fechas = ufs.map((uf) => uf.fecha);
-    //valores = ufs.map((uf) => uf.valor);
+    fechas = serie.map(uf => uf.fecha);
+    valores = serie.map(uf => uf.valor);
 
 
+    const fechasOrdenadas = fechas.sort((a, b) => a>b);
+
+
+    
     const unidades = document.getElementById('myChart');
 
     const chart = new Chart(unidades, {
         type: 'line',
         data: {
-            labels: fechas,
+            labels: fechasOrdenadas,
             datasets: [{
                 label: 'Unidades de Fomento',
                 data: valores,
@@ -28,7 +37,8 @@ async function renderData() {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false,
+                    reverse: true
                 }
             }
         }
